@@ -1,0 +1,12 @@
+[gd_scene load_steps=6 format=3 uid="uid://7ogjgmjhlyh0"]
+
+[ext_resource type="Texture2D" uid="uid://bqxi4gxho3nfp" path="res://Sprites/Ticks/MoveTicks/right.png" id="1_d237f"]
+[ext_resource type="Script" path="res://Scripts/Blocks/EventBlock/UnControllMoveBlock.gd" id="2_wp4gm"]
+[ext_resource type="Texture2D" uid="uid://bde2lyrmrptcm" path="res://Sprites/Ticks/MoveTicks/down.png" id="3_l8uqn"]
+[ext_resource type="Texture2D" uid="uid://brd8acwokxfd7" path="res://Sprites/Ticks/MoveTicks/left.png" id="4_ybt8n"]
+[ext_resource type="Texture2D" uid="uid://bhhba6n3ktuio" path="res://Sprites/Ticks/MoveTicks/up.png" id="5_ahgcv"]
+
+[node name="UncontrollMoveBlock" type="Sprite2D"]
+texture = ExtResource("1_d237f")
+script = ExtResource("2_wp4gm")
+tick_texture = Array[Texture2D]([ExtResource("1_d237f"), ExtResource("3_l8uqn"), ExtResource("4_ybt8n"), ExtResource("5_ahgcv")])

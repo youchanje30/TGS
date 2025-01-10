@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://n8o8jac5oerc"]
+
+[ext_resource type="Script" path="res://Scripts/Interfaces/IUnmovableBlock.gd" id="1_g62e6"]
+[ext_resource type="Texture2D" uid="uid://qi3jkbufgfat" path="res://Sprites/Blocks/brown.png" id="2_botin"]
+[ext_resource type="PackedScene" uid="uid://7ogjgmjhlyh0" path="res://Scenes/Blocks/EventBlocks/UncontrollMoveBlock.tscn" id="3_2xyyi"]
+
+[node name="MoveUncontrollMoveBlock" type="Node2D" node_paths=PackedStringArray("event_blocks")]
+script = ExtResource("1_g62e6")
+id = 4
+event_blocks = [NodePath("UncontrollMoveBlock")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_botin")
+
+[node name="UncontrollMoveBlock" parent="." instance=ExtResource("3_2xyyi")]

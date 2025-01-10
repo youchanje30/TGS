@@ -1,0 +1,19 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgirbmfmlqik0"]
+
+[ext_resource type="Script" path="res://Scripts/Ticks/MoveTick.gd" id="1_3cj6g"]
+[ext_resource type="Script" path="res://Scripts/Interfaces/IDirection.gd" id="2_t4yer"]
+[ext_resource type="Resource" uid="uid://dkt27pgh16pum" path="res://Scripts/Directions/EightDirection.tres" id="3_ra2jn"]
+[ext_resource type="Resource" uid="uid://cxcr23rdxu3u8" path="res://Scripts/Directions/AcrossDirection.tres" id="4_b735u"]
+[ext_resource type="Resource" uid="uid://cuhmc326iquhi" path="res://Scripts/Directions/CardinalDirection.tres" id="5_v737n"]
+[ext_resource type="Resource" uid="uid://ddnb5ut7hgxl1" path="res://Scripts/Directions/ZeroDirection.tres" id="6_q4y6j"]
+[ext_resource type="Texture2D" uid="uid://bqxi4gxho3nfp" path="res://Sprites/Ticks/MoveTicks/right.png" id="7_vghxx"]
+[ext_resource type="Texture2D" uid="uid://bde2lyrmrptcm" path="res://Sprites/Ticks/MoveTicks/down.png" id="8_uqfux"]
+[ext_resource type="Texture2D" uid="uid://brd8acwokxfd7" path="res://Sprites/Ticks/MoveTicks/left.png" id="9_5h3dt"]
+[ext_resource type="Texture2D" uid="uid://bhhba6n3ktuio" path="res://Sprites/Ticks/MoveTicks/up.png" id="10_lw6ld"]
+[ext_resource type="Texture2D" uid="uid://dqsowpg8lygti" path="res://Sprites/Ticks/highlight.png" id="11_jx4sn"]
+
+[node name="MoveTick" type="Node"]
+script = ExtResource("1_3cj6g")
+direction_info = Array[ExtResource("2_t4yer")]([ExtResource("3_ra2jn"), ExtResource("4_b735u"), ExtResource("5_v737n"), ExtResource("6_q4y6j")])
+texture = Array[Texture2D]([ExtResource("7_vghxx"), ExtResource("8_uqfux"), ExtResource("9_5h3dt"), ExtResource("10_lw6ld")])
+highlight_tick = ExtResource("11_jx4sn")

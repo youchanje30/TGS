@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh24nbuupddge"]
+
+[ext_resource type="Script" path="res://Scripts/Maps/DataController/MapDataController.gd" id="1_i5yer"]
+[ext_resource type="PackedScene" uid="uid://bgirbmfmlqik0" path="res://Scenes/Ticks/move_tick.tscn" id="2_87mm7"]
+[ext_resource type="PackedScene" uid="uid://bd5b6i3d0aytb" path="res://Scenes/Ticks/rotate_tick.tscn" id="3_djbef"]
+[ext_resource type="PackedScene" uid="uid://c41pqjg1n17yp" path="res://Scenes/Ticks/duplicate_tick.tscn" id="4_3np1k"]
+
+[node name="MapsController" type="Node" node_paths=PackedStringArray("ticks", "block_view", "tick_view")]
+script = ExtResource("1_i5yer")
+ticks = [NodePath("Ticks/MoveTick"), NodePath("Ticks/RotateTick"), NodePath("Ticks/DuplicateTick")]
+block_view = NodePath("Tile View")
+tick_view = NodePath("Tick View")
+
+[node name="Ticks" type="Node" parent="."]
+
+[node name="MoveTick" parent="Ticks" instance=ExtResource("2_87mm7")]
+
+[node name="RotateTick" parent="Ticks" instance=ExtResource("3_djbef")]
+
+[node name="DuplicateTick" parent="Ticks" instance=ExtResource("4_3np1k")]
+
+[node name="Tile View" type="Node" parent="."]
+
+[node name="Tick View" type="Node" parent="."]

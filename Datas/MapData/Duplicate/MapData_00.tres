@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://bb0ld1what8qv"]
+
+[ext_resource type="Script" path="res://Scripts/ResourceObject/MapData.gd" id="1_wcocu"]
+
+[resource]
+script = ExtResource("1_wcocu")
+block_data = Array[Array]([[Vector2i(9, 7), 1, "1 00"], [Vector2i(14, 7), 5, "1 0"]])
+tick_data = Array[Array]([])
+goal_data = Array[Vector2i]([Vector2i(15, 7)])
+tick_time = 1
+max_use_tick = 5

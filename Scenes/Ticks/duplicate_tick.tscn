@@ -1,0 +1,16 @@
+[gd_scene load_steps=9 format=3 uid="uid://c41pqjg1n17yp"]
+
+[ext_resource type="Script" path="res://Scripts/Ticks/DuplicateTick.gd" id="1_ylmmj"]
+[ext_resource type="Script" path="res://Scripts/Interfaces/IDirection.gd" id="2_sbpx5"]
+[ext_resource type="Resource" uid="uid://dkt27pgh16pum" path="res://Scripts/Directions/EightDirection.tres" id="3_l8xne"]
+[ext_resource type="Resource" uid="uid://cxcr23rdxu3u8" path="res://Scripts/Directions/AcrossDirection.tres" id="4_7fu4q"]
+[ext_resource type="Resource" uid="uid://cuhmc326iquhi" path="res://Scripts/Directions/CardinalDirection.tres" id="5_6griy"]
+[ext_resource type="Resource" uid="uid://ddnb5ut7hgxl1" path="res://Scripts/Directions/ZeroDirection.tres" id="6_0wdp5"]
+[ext_resource type="Texture2D" uid="uid://oxjsvlhjlfq" path="res://Sprites/Ticks/DuplcateTick/dup.png" id="7_63a56"]
+[ext_resource type="Texture2D" uid="uid://dqsowpg8lygti" path="res://Sprites/Ticks/highlight.png" id="7_uyyxs"]
+
+[node name="DuplicateTick" type="Node"]
+script = ExtResource("1_ylmmj")
+direction_info = Array[ExtResource("2_sbpx5")]([ExtResource("3_l8xne"), ExtResource("4_7fu4q"), ExtResource("5_6griy"), ExtResource("6_0wdp5")])
+texture = ExtResource("7_63a56")
+highlight_tick = ExtResource("7_uyyxs")

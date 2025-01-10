@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf0nl15v4wpge"]
+
+[ext_resource type="Script" path="res://Scripts/Interfaces/IUnmovableBlock.gd" id="1_wjnvd"]
+[ext_resource type="Texture2D" uid="uid://d12v5qxpc30cw" path="res://Sprites/Blocks/break_r2.png" id="2_q4eym"]
+[ext_resource type="PackedScene" uid="uid://7ogjgmjhlyh0" path="res://Scenes/Blocks/EventBlocks/UncontrollMoveBlock.tscn" id="3_wy0r2"]
+[ext_resource type="PackedScene" uid="uid://crvg8yajhlxmn" path="res://Scenes/Blocks/EventBlocks/Break.tscn" id="4_ydkb1"]
+
+[node name="MoveUncontrollMoveBlock" type="Node2D" node_paths=PackedStringArray("event_blocks")]
+script = ExtResource("1_wjnvd")
+id = 6
+event_blocks = [NodePath("UncontrollMoveBlock"), NodePath("BreakBlock")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q4eym")
+
+[node name="UncontrollMoveBlock" parent="." instance=ExtResource("3_wy0r2")]
+
+[node name="BreakBlock" parent="." instance=ExtResource("4_ydkb1")]

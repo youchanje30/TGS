@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ZeroDirection" load_steps=2 format=3 uid="uid://ddnb5ut7hgxl1"]
+
+[ext_resource type="Script" path="res://Scripts/Directions/ZeroDirection.gd" id="1_f0xjd"]
+
+[resource]
+script = ExtResource("1_f0xjd")
+direction = Array[Vector2i]([Vector2i(0, 0)])

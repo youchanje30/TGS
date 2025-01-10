@@ -1,0 +1,17 @@
+[gd_scene load_steps=10 format=3 uid="uid://bd5b6i3d0aytb"]
+
+[ext_resource type="Script" path="res://Scripts/Ticks/RotateTick.gd" id="1_nf3xh"]
+[ext_resource type="Script" path="res://Scripts/Interfaces/IDirection.gd" id="2_q6ko5"]
+[ext_resource type="Resource" uid="uid://dkt27pgh16pum" path="res://Scripts/Directions/EightDirection.tres" id="3_qg382"]
+[ext_resource type="Resource" uid="uid://cxcr23rdxu3u8" path="res://Scripts/Directions/AcrossDirection.tres" id="4_p0nlm"]
+[ext_resource type="Resource" uid="uid://cuhmc326iquhi" path="res://Scripts/Directions/CardinalDirection.tres" id="5_7pl3s"]
+[ext_resource type="Resource" uid="uid://ddnb5ut7hgxl1" path="res://Scripts/Directions/ZeroDirection.tres" id="6_kk75l"]
+[ext_resource type="Texture2D" uid="uid://bkn0qbtq1a4p3" path="res://Sprites/Ticks/RotateTicks/rotate_right.png" id="7_127bl"]
+[ext_resource type="Texture2D" uid="uid://dtvyik7ka4irl" path="res://Sprites/Ticks/RotateTicks/rotate_left.png" id="7_kdnt2"]
+[ext_resource type="Texture2D" uid="uid://dqsowpg8lygti" path="res://Sprites/Ticks/highlight.png" id="7_kkf81"]
+
+[node name="RotateTick" type="Node"]
+script = ExtResource("1_nf3xh")
+direction_info = Array[ExtResource("2_q6ko5")]([ExtResource("3_qg382"), ExtResource("4_p0nlm"), ExtResource("5_7pl3s"), ExtResource("6_kk75l")])
+texture = Array[Texture2D]([ExtResource("7_kdnt2"), ExtResource("7_127bl")])
+highlight_tick = ExtResource("7_kkf81")

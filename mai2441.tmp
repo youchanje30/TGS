@@ -1,0 +1,58 @@
+[gd_scene load_steps=12 format=3 uid="uid://bujqkleyi4tek"]
+
+[ext_resource type="Script" path="res://Scripts/Maps/TilesController.gd" id="1_muyx2"]
+[ext_resource type="Resource" uid="uid://cdcjuvg74bd14" path="res://Scripts/MapData/MapData_0.tres" id="2_dm2qo"]
+[ext_resource type="Script" path="res://Scripts/Ticks/MoveTick.gd" id="3_6b8uc"]
+[ext_resource type="Resource" uid="uid://ddnb5ut7hgxl1" path="res://Scripts/Directions/ZeroDirection.tres" id="4_efaxx"]
+[ext_resource type="Script" path="res://Scripts/Ticks/RotateTick.gd" id="4_kybcn"]
+[ext_resource type="Script" path="res://Scripts/Interfaces/IDirection.gd" id="4_l67y5"]
+[ext_resource type="Script" path="res://Scripts/Ticks/DuplicateTick.gd" id="4_r5e74"]
+[ext_resource type="Script" path="res://Scripts/Maps/MapsTile.gd" id="4_u4oho"]
+[ext_resource type="Resource" uid="uid://dkt27pgh16pum" path="res://Scripts/Directions/EightDirection.tres" id="5_dgpeb"]
+[ext_resource type="Resource" uid="uid://cxcr23rdxu3u8" path="res://Scripts/Directions/AcrossDirection.tres" id="6_cu0uo"]
+[ext_resource type="Resource" uid="uid://cuhmc326iquhi" path="res://Scripts/Directions/CardinalDirection.tres" id="7_r2h0i"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TilesController" type="Node" parent="." node_paths=PackedStringArray("ticks")]
+script = ExtResource("1_muyx2")
+mapdata = ExtResource("2_dm2qo")
+ticks = [NodePath("Ticks/MoveTick"), NodePath("Ticks/RotateTick"), NodePath("Ticks/DuplicateTick")]
+
+[node name="Ticks" type="Node" parent="TilesController"]
+
+[node name="MoveTick" type="Node" parent="TilesController/Ticks"]
+script = ExtResource("3_6b8uc")
+direction_info = Array[ExtResource("4_l67y5")]([ExtResource("5_dgpeb"), ExtResource("6_cu0uo"), ExtResource("7_r2h0i"), ExtResource("4_efaxx")])
+
+[node name="RotateTick" type="Node" parent="TilesController/Ticks"]
+script = ExtResource("4_kybcn")
+direction_info = Array[ExtResource("4_l67y5")]([ExtResource("5_dgpeb"), ExtResource("6_cu0uo"), ExtResource("7_r2h0i"), ExtResource("4_efaxx")])
+
+[node name="DuplicateTick" type="Node" parent="TilesController/Ticks"]
+script = ExtResource("4_r5e74")
+direction_info = Array[ExtResource("4_l67y5")]([ExtResource("5_dgpeb"), ExtResource("6_cu0uo"), ExtResource("7_r2h0i"), ExtResource("4_efaxx")])
+
+[node name="Timer" type="Timer" parent="TilesController"]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="Auto Tick" type="Timer" parent="TilesController"]
+wait_time = 2.0
+
+[node name="Node" type="Node" parent="TilesController"]
+script = ExtResource("4_u4oho")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(200, 100)
+
+[node name="Start" type="Button" parent="."]
+offset_left = 226.0
+offset_top = 4.0
+offset_right = 242.0
+offset_bottom = 20.0
+
+[connection signal="timeout" from="TilesController/Timer" to="TilesController" method="_on_timer_timeout"]
+[connection signal="timeout" from="TilesController/Auto Tick" to="TilesController" method="_on_auto_tick_timeout"]
+[connection signal="pressed" from="Start" to="TilesController" method="_on_start_pressed"]

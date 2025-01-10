@@ -1,0 +1,175 @@
+[gd_scene load_steps=17 format=3 uid="uid://bhbqdwcd3hx1n"]
+
+[ext_resource type="Script" path="res://Scripts/Utility/SelectTickData.gd" id="1_1yt55"]
+[ext_resource type="Texture2D" uid="uid://bqxi4gxho3nfp" path="res://Sprites/Ticks/MoveTicks/right.png" id="3_evqkw"]
+[ext_resource type="Texture2D" uid="uid://bkn0qbtq1a4p3" path="res://Sprites/Ticks/RotateTicks/rotate_right.png" id="4_4ypyl"]
+[ext_resource type="Texture2D" uid="uid://oxjsvlhjlfq" path="res://Sprites/Ticks/DuplcateTick/dup.png" id="5_b8sgr"]
+[ext_resource type="Texture2D" uid="uid://bp3m8g3vmp04q" path="res://Sprites/Ticks/DirectionsInfo/none_dir.png" id="6_o2a51"]
+[ext_resource type="Texture2D" uid="uid://b75ayime3gf2" path="res://Sprites/Ticks/DirectionsInfo/eight.png" id="7_ghtje"]
+[ext_resource type="Texture2D" uid="uid://drjxl5rqrfm1r" path="res://Sprites/Ticks/DirectionsInfo/across.png" id="8_cgkxg"]
+[ext_resource type="Texture2D" uid="uid://co5gjtk6w4eyw" path="res://Sprites/Ticks/DirectionsInfo/cardinal.png" id="9_hk77a"]
+[ext_resource type="Texture2D" uid="uid://c6r034rmmjsl1" path="res://Sprites/Ticks/DirectionsInfo/no_self.png" id="10_425mx"]
+[ext_resource type="Texture2D" uid="uid://5qkbym1xdk8s" path="res://Sprites/Ticks/DirectionsInfo/yes_self.png" id="11_s8ylb"]
+[ext_resource type="Texture2D" uid="uid://bde2lyrmrptcm" path="res://Sprites/Ticks/MoveTicks/down.png" id="12_q58xu"]
+[ext_resource type="Texture2D" uid="uid://brd8acwokxfd7" path="res://Sprites/Ticks/MoveTicks/left.png" id="13_0mwc4"]
+[ext_resource type="Texture2D" uid="uid://bhhba6n3ktuio" path="res://Sprites/Ticks/MoveTicks/up.png" id="14_nui50"]
+[ext_resource type="Texture2D" uid="uid://dtvyik7ka4irl" path="res://Sprites/Ticks/RotateTicks/rotate_left.png" id="15_ek2ro"]
+
+[sub_resource type="FontFile" id="FontFile_ig2mg"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_hts0c"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+
+[node name="SelectTick" type="Node" node_paths=PackedStringArray("time_info", "type_info", "dir_info", "self_info", "RotateType")]
+script = ExtResource("1_1yt55")
+time_info = NodePath("Time")
+type_info = NodePath("Type")
+dir_info = NodePath("Direction")
+self_info = NodePath("Self")
+RotateType = [NodePath("RotateTypeGroup/MoveRotate"), NodePath("RotateTypeGroup/RotateRotate"), NodePath("RotateTypeGroup/Duplicate")]
+
+[node name="Time" type="OptionButton" parent="."]
+offset_left = 241.0
+offset_top = 2.0
+offset_right = 284.0
+offset_bottom = 26.0
+
+[node name="Type" type="OptionButton" parent="."]
+offset_left = 289.0
+offset_top = 2.0
+offset_right = 350.0
+offset_bottom = 26.0
+theme_override_fonts/font = SubResource("FontFile_ig2mg")
+theme_override_font_sizes/font_size = 10
+selected = 0
+item_count = 3
+popup/item_0/text = "M"
+popup/item_0/icon = ExtResource("3_evqkw")
+popup/item_1/text = "R"
+popup/item_1/icon = ExtResource("4_4ypyl")
+popup/item_1/id = 1
+popup/item_2/text = "D"
+popup/item_2/icon = ExtResource("5_b8sgr")
+popup/item_2/id = 2
+
+[node name="Direction" type="OptionButton" parent="."]
+offset_left = 353.0
+offset_top = 2.0
+offset_right = 409.0
+offset_bottom = 24.0
+theme_override_fonts/font = SubResource("FontFile_hts0c")
+theme_override_font_sizes/font_size = 10
+selected = 0
+item_count = 4
+popup/item_0/text = "N"
+popup/item_0/icon = ExtResource("6_o2a51")
+popup/item_1/text = "E"
+popup/item_1/icon = ExtResource("7_ghtje")
+popup/item_1/id = 1
+popup/item_2/text = "A"
+popup/item_2/icon = ExtResource("8_cgkxg")
+popup/item_2/id = 2
+popup/item_3/text = "C"
+popup/item_3/icon = ExtResource("9_hk77a")
+popup/item_3/id = 3
+
+[node name="Self" type="OptionButton" parent="."]
+offset_left = 355.0
+offset_top = 28.0
+offset_right = 403.0
+offset_bottom = 50.0
+theme_override_fonts/font = SubResource("FontFile_ig2mg")
+theme_override_font_sizes/font_size = 10
+selected = 0
+item_count = 2
+popup/item_0/text = "N"
+popup/item_0/icon = ExtResource("10_425mx")
+popup/item_1/text = "Y"
+popup/item_1/icon = ExtResource("11_s8ylb")
+popup/item_1/id = 1
+
+[node name="RotateTypeGroup" type="Node" parent="."]
+
+[node name="MoveRotate" type="OptionButton" parent="RotateTypeGroup"]
+offset_left = 413.0
+offset_top = 2.0
+offset_right = 472.0
+offset_bottom = 26.0
+theme_override_fonts/font = SubResource("FontFile_ig2mg")
+theme_override_font_sizes/font_size = 10
+selected = 0
+item_count = 4
+popup/item_0/text = "R"
+popup/item_0/icon = ExtResource("3_evqkw")
+popup/item_1/text = "D"
+popup/item_1/icon = ExtResource("12_q58xu")
+popup/item_1/id = 1
+popup/item_2/text = "L"
+popup/item_2/icon = ExtResource("13_0mwc4")
+popup/item_2/id = 2
+popup/item_3/text = "U"
+popup/item_3/icon = ExtResource("14_nui50")
+popup/item_3/id = 3
+
+[node name="RotateRotate" type="OptionButton" parent="RotateTypeGroup"]
+visible = false
+offset_left = 406.0
+offset_top = 5.0
+offset_right = 464.0
+offset_bottom = 29.0
+theme_override_fonts/font = SubResource("FontFile_ig2mg")
+theme_override_font_sizes/font_size = 10
+selected = 0
+item_count = 2
+popup/item_0/text = "R"
+popup/item_0/icon = ExtResource("4_4ypyl")
+popup/item_0/id = 3
+popup/item_1/text = "L"
+popup/item_1/icon = ExtResource("15_ek2ro")
+popup/item_1/id = 1
+
+[node name="Duplicate" type="OptionButton" parent="RotateTypeGroup"]
+visible = false
+offset_left = 406.0
+offset_top = 5.0
+offset_right = 466.0
+offset_bottom = 29.0
+theme_override_fonts/font = SubResource("FontFile_ig2mg")
+theme_override_font_sizes/font_size = 10
+selected = 0
+item_count = 1
+popup/item_0/text = "D"
+popup/item_0/icon = ExtResource("5_b8sgr")
+
+[connection signal="item_selected" from="Time" to="." method="_on_time_pressed"]
+[connection signal="item_selected" from="Type" to="." method="_on_type_item_selected"]

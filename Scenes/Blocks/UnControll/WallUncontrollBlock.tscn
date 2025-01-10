@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj2syyqyjcj4a"]
+
+[ext_resource type="Script" path="res://Scripts/Blocks/WallBlock.gd" id="1_2cdpi"]
+[ext_resource type="Texture2D" uid="uid://qi3jkbufgfat" path="res://Sprites/Blocks/brown.png" id="2_s1yf7"]
+
+[node name="Wall_Block" type="Node2D"]
+script = ExtResource("1_2cdpi")
+id = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_s1yf7")

@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3fvlaysvlcx7"]
+
+[ext_resource type="Script" path="res://Scripts/Maps/InputController/MapInputController.gd" id="1_aqgt3"]
+[ext_resource type="PackedScene" uid="uid://bh24nbuupddge" path="res://Scenes/MapEditor/DataController/MapDataController.tscn" id="2_3gjm8"]
+[ext_resource type="Texture2D" uid="uid://cxcg7hsdnsvfy" path="res://Sprites/Blocks/goal.png" id="3_3dynn"]
+[ext_resource type="Script" path="res://Scripts/Utility/ButtonData.gd" id="4_fq7jd"]
+[ext_resource type="PackedScene" uid="uid://bhbqdwcd3hx1n" path="res://Scenes/MapEditor/Utility/select_tick.tscn" id="5_gys8i"]
+
+[node name="MapGenerator" type="Node2D" node_paths=PackedStringArray("tile_id", "max_tick_data", "is_tick", "event_data", "map_controller", "select", "is_remove")]
+script = ExtResource("1_aqgt3")
+tile_id = NodePath("ID")
+max_tick_data = NodePath("MaxTickTime")
+is_tick = NodePath("isTick")
+event_data = NodePath("LineEdit")
+map_controller = NodePath("MapsController")
+select = NodePath("SelectTick")
+is_remove = NodePath("IsRemove")
+
+[node name="MapsController" parent="." node_paths=PackedStringArray("goal") instance=ExtResource("2_3gjm8")]
+goal = NodePath("../Goal")
+goal_texture = ExtResource("3_3dynn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(235, 117)
+
+[node name="Save" type="Button" parent="."]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 46.0
+offset_bottom = 33.0
+text = "Save"
+metadata/_edit_use_anchors_ = true
+
+[node name="MaxTickTime" type="Button" parent="."]
+offset_left = 76.0
+offset_top = 76.0
+offset_right = 102.0
+offset_bottom = 101.0
+script = ExtResource("4_fq7jd")
+max_cur = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MaxTickTime"]
+layout_mode = 0
+offset_left = -69.0
+offset_right = -3.0
+offset_bottom = 23.0
+text = "max tick"
+metadata/_edit_use_anchors_ = true
+
+[node name="isTick" type="Button" parent="."]
+offset_left = 80.0
+offset_top = 6.0
+offset_right = 111.0
+offset_bottom = 26.0
+toggle_mode = true
+text = "isTick"
+metadata/_edit_use_anchors_ = true
+
+[node name="Do" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 149.0
+offset_right = 57.0
+offset_bottom = 180.0
+toggle_mode = true
+text = "do"
+metadata/_edit_use_anchors_ = true
+
+[node name="Out" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 183.0
+offset_right = 56.0
+offset_bottom = 214.0
+toggle_mode = true
+text = "out"
+metadata/_edit_use_anchors_ = true
+
+[node name="reset" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 217.0
+offset_right = 57.0
+offset_bottom = 248.0
+toggle_mode = true
+text = "reset"
+metadata/_edit_use_anchors_ = true
+
+[node name="IsRemove" type="Button" parent="."]
+offset_left = 2.0
+offset_top = 37.0
+offset_right = 53.0
+offset_bottom = 68.0
+toggle_mode = true
+text = "Erase"
+metadata/_edit_use_anchors_ = true
+
+[node name="ID" type="Button" parent="."]
+offset_left = 79.0
+offset_top = 108.0
+offset_right = 99.0
+offset_bottom = 128.0
+script = ExtResource("4_fq7jd")
+max_cur = 9
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ID"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -2.0
+offset_right = -4.0
+offset_bottom = 21.0
+text = "id"
+metadata/_edit_use_anchors_ = true
+
+[node name="Goal" type="Node" parent="."]
+
+[node name="SelectTick" parent="." instance=ExtResource("5_gys8i")]
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 66.0
+offset_top = 133.0
+offset_right = 133.063
+offset_bottom = 164.0
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MaxTickTime" to="MaxTickTime" method="_on_pressed"]
+[connection signal="pressed" from="Do" to="." method="_on_do_pressed"]
+[connection signal="pressed" from="Out" to="." method="_on_out_pressed"]
+[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]

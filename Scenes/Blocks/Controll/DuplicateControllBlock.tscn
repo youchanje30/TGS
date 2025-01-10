@@ -1,0 +1,26 @@
+[gd_scene load_steps=12 format=3 uid="uid://8r34frgdnmgr"]
+
+[ext_resource type="Script" path="res://Scripts/Blocks/MovableBlock.gd" id="1_bus5t"]
+[ext_resource type="Texture2D" uid="uid://cc0o2khphx1b8" path="res://Sprites/Blocks/g2.png" id="2_75tcs"]
+[ext_resource type="PackedScene" uid="uid://ofgfmere6kdv" path="res://Scenes/Blocks/EventBlocks/ControllMoveBlock.tscn" id="3_ks7j5"]
+[ext_resource type="Script" path="res://Scripts/Blocks/EventBlock/ControllMoveBlock.gd" id="4_f24h2"]
+[ext_resource type="Texture2D" uid="uid://bqxi4gxho3nfp" path="res://Sprites/Ticks/MoveTicks/right.png" id="5_8kkwl"]
+[ext_resource type="Texture2D" uid="uid://bde2lyrmrptcm" path="res://Sprites/Ticks/MoveTicks/down.png" id="6_ijlnh"]
+[ext_resource type="Texture2D" uid="uid://brd8acwokxfd7" path="res://Sprites/Ticks/MoveTicks/left.png" id="7_21tga"]
+[ext_resource type="Texture2D" uid="uid://bhhba6n3ktuio" path="res://Sprites/Ticks/MoveTicks/up.png" id="8_xuu88"]
+[ext_resource type="Texture2D" uid="uid://bkn0qbtq1a4p3" path="res://Sprites/Ticks/RotateTicks/rotate_right.png" id="9_plxhe"]
+[ext_resource type="Texture2D" uid="uid://dtvyik7ka4irl" path="res://Sprites/Ticks/RotateTicks/rotate_left.png" id="10_ua5u2"]
+[ext_resource type="Texture2D" uid="uid://oxjsvlhjlfq" path="res://Sprites/Ticks/DuplcateTick/dup.png" id="11_jn2u0"]
+
+[node name="DuplicateControllBlock" type="Node2D" node_paths=PackedStringArray("event_blocks")]
+script = ExtResource("1_bus5t")
+id = 2
+event_blocks = [NodePath("ControllMoveBlock")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_75tcs")
+
+[node name="ControllMoveBlock" parent="." instance=ExtResource("3_ks7j5")]
+script = ExtResource("4_f24h2")
+type = 2
+tick_texture = Array[Texture2D]([ExtResource("5_8kkwl"), ExtResource("6_ijlnh"), ExtResource("7_21tga"), ExtResource("8_xuu88"), ExtResource("9_plxhe"), ExtResource("10_ua5u2"), ExtResource("11_jn2u0")])

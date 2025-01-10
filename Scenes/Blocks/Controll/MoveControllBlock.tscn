@@ -1,0 +1,26 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbdxq821gkhvn"]
+
+[ext_resource type="Script" path="res://Scripts/Blocks/MovableBlock.gd" id="1_hp4q0"]
+[ext_resource type="Texture2D" uid="uid://cc0o2khphx1b8" path="res://Sprites/Blocks/g2.png" id="2_gd6p0"]
+[ext_resource type="PackedScene" uid="uid://ofgfmere6kdv" path="res://Scenes/Blocks/EventBlocks/ControllMoveBlock.tscn" id="3_8b6ep"]
+[ext_resource type="Script" path="res://Scripts/Blocks/EventBlock/ControllMoveBlock.gd" id="4_pwfyh"]
+[ext_resource type="Texture2D" uid="uid://bqxi4gxho3nfp" path="res://Sprites/Ticks/MoveTicks/right.png" id="5_tqovk"]
+[ext_resource type="Texture2D" uid="uid://bde2lyrmrptcm" path="res://Sprites/Ticks/MoveTicks/down.png" id="6_kgnqc"]
+[ext_resource type="Texture2D" uid="uid://brd8acwokxfd7" path="res://Sprites/Ticks/MoveTicks/left.png" id="7_2xn1o"]
+[ext_resource type="Texture2D" uid="uid://bhhba6n3ktuio" path="res://Sprites/Ticks/MoveTicks/up.png" id="8_sqlwt"]
+[ext_resource type="Texture2D" uid="uid://bkn0qbtq1a4p3" path="res://Sprites/Ticks/RotateTicks/rotate_right.png" id="9_854fr"]
+[ext_resource type="Texture2D" uid="uid://dtvyik7ka4irl" path="res://Sprites/Ticks/RotateTicks/rotate_left.png" id="10_m1w7w"]
+[ext_resource type="Texture2D" uid="uid://oxjsvlhjlfq" path="res://Sprites/Ticks/DuplcateTick/dup.png" id="11_4ixcn"]
+
+[node name="ControllMovableBlock" type="Node2D" node_paths=PackedStringArray("event_blocks")]
+script = ExtResource("1_hp4q0")
+id = 1
+event_blocks = [NodePath("ControllMoveBlock")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gd6p0")
+
+[node name="ControllMoveBlock" parent="." instance=ExtResource("3_8b6ep")]
+script = ExtResource("4_pwfyh")
+type = 0
+tick_texture = Array[Texture2D]([ExtResource("5_tqovk"), ExtResource("6_kgnqc"), ExtResource("7_2xn1o"), ExtResource("8_sqlwt"), ExtResource("9_854fr"), ExtResource("10_m1w7w"), ExtResource("11_4ixcn")])

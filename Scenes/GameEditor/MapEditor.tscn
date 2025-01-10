@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://eumem3xmm16m"]
+
+[ext_resource type="Script" path="res://Scripts/Maps/InputController/TickInputController.gd" id="1_r5hq6"]
+[ext_resource type="PackedScene" uid="uid://bh24nbuupddge" path="res://Scenes/MapEditor/DataController/MapDataController.tscn" id="2_fy7ny"]
+[ext_resource type="Texture2D" uid="uid://cxcg7hsdnsvfy" path="res://Sprites/Blocks/goal.png" id="3_amgbl"]
+[ext_resource type="Resource" uid="uid://cf1vhibj0vns8" path="res://Datas/MapData/Normal/MapData_04.tres" id="4_krneh"]
+[ext_resource type="PackedScene" uid="uid://bhbqdwcd3hx1n" path="res://Scenes/MapEditor/Utility/select_tick.tscn" id="6_o30ae"]
+
+[node name="GameEditor" type="Node2D" node_paths=PackedStringArray("map_controller", "select", "is_remove")]
+script = ExtResource("1_r5hq6")
+map_controller = NodePath("MapsController")
+select = NodePath("SelectTick")
+is_remove = NodePath("IsRemove")
+
+[node name="MapsController" parent="." node_paths=PackedStringArray("goal") instance=ExtResource("2_fy7ny")]
+goal = NodePath("../Goal")
+goal_texture = ExtResource("3_amgbl")
+mapdata = ExtResource("4_krneh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(235, 117)
+
+[node name="Save" type="Button" parent="."]
+visible = false
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 46.0
+offset_bottom = 33.0
+text = "Save"
+
+[node name="Do" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 149.0
+offset_right = 57.0
+offset_bottom = 180.0
+toggle_mode = true
+text = "do"
+
+[node name="Out" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 183.0
+offset_right = 56.0
+offset_bottom = 214.0
+toggle_mode = true
+text = "out"
+
+[node name="reset" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 217.0
+offset_right = 57.0
+offset_bottom = 248.0
+toggle_mode = true
+text = "reset"
+
+[node name="IsRemove" type="Button" parent="."]
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 55.0
+offset_bottom = 39.0
+toggle_mode = true
+text = "Erase"
+
+[node name="Goal" type="Node" parent="."]
+
+[node name="SelectTick" parent="." instance=ExtResource("6_o30ae")]
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Do" to="." method="_on_do_pressed"]
+[connection signal="pressed" from="Out" to="." method="_on_out_pressed"]
+[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]

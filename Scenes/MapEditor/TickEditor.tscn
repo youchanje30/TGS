@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dixl1uojl1sio"]
+
+[ext_resource type="Script" path="res://Scripts/Maps/InputController/TickInputController.gd" id="1_rngmu"]
+[ext_resource type="PackedScene" uid="uid://bh24nbuupddge" path="res://Scenes/MapEditor/DataController/MapDataController.tscn" id="2_irfl7"]
+[ext_resource type="Texture2D" uid="uid://cxcg7hsdnsvfy" path="res://Sprites/Blocks/goal.png" id="3_cdn2y"]
+[ext_resource type="PackedScene" uid="uid://bhbqdwcd3hx1n" path="res://Scenes/MapEditor/Utility/select_tick.tscn" id="5_osadd"]
+
+[node name="GameController" type="Node2D" node_paths=PackedStringArray("map_controller", "select", "is_remove")]
+script = ExtResource("1_rngmu")
+map_controller = NodePath("MapsController")
+select = NodePath("SelectTick")
+is_remove = NodePath("IsRemove")
+
+[node name="MapsController" parent="." node_paths=PackedStringArray("goal") instance=ExtResource("2_irfl7")]
+goal = NodePath("../Goal")
+goal_texture = ExtResource("3_cdn2y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(235, 117)
+
+[node name="Do" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 149.0
+offset_right = 57.0
+offset_bottom = 180.0
+toggle_mode = true
+text = "do"
+
+[node name="Out" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 183.0
+offset_right = 56.0
+offset_bottom = 214.0
+toggle_mode = true
+text = "out"
+
+[node name="reset" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 217.0
+offset_right = 57.0
+offset_bottom = 248.0
+toggle_mode = true
+text = "reset"
+
+[node name="IsRemove" type="Button" parent="."]
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 58.0
+offset_bottom = 39.0
+toggle_mode = true
+text = "Erase"
+
+[node name="Goal" type="Node" parent="."]
+
+[node name="SelectTick" parent="." instance=ExtResource("5_osadd")]
+
+[connection signal="pressed" from="Do" to="." method="_on_do_pressed"]
+[connection signal="pressed" from="Out" to="." method="_on_out_pressed"]
+[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
